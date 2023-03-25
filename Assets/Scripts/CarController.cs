@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-
+    public SpawnManager spawnManager;
     public float maxSpeed = 10f;
     public float acceleration = 5f;
     public float deceleration = 10f;
@@ -66,5 +66,10 @@ public class CarController : MonoBehaviour
             transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime * driftFactor);
 
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        spawnManager.SpawnTriggerEntered();
     }
 }

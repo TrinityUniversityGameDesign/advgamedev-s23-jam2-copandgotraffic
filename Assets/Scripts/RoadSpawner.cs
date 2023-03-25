@@ -7,13 +7,17 @@ public class RoadSpawner : MonoBehaviour
 {
 
     public List<GameObject> roads;
-    private float offset = 40f;
+    private float offset = 38f;
     // Start is called before the first frame update
     void Start()
     {
         if (roads != null && roads.Count > 0)
         {
-            roads = roads.OrderBy(r => r.transform.position.z).ToList();
+            roads = roads.OrderBy(r => r.transform.position.x).ToList();
+            for (int i = 0; i < roads.Count; i++)
+            {
+                Debug.Log("Road count: " + roads[i]);
+            }
         }
     }
 
@@ -21,8 +25,8 @@ public class RoadSpawner : MonoBehaviour
     {
         GameObject moveRoad = roads[0];
         roads.Remove(moveRoad);
-        float newZ = roads[roads.Count - 1].transform.position.z + offset;
-        moveRoad.transform.position = new Vector3(0, 0, newZ);
+        float newX = roads[roads.Count - 1].transform.position.x + offset;
+        moveRoad.transform.position = new Vector3(newX, 0, 0);
         roads.Add(moveRoad);
     }
 
