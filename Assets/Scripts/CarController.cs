@@ -68,8 +68,5 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        spawnManager.SpawnTriggerEntered();
-    }
+   
 }

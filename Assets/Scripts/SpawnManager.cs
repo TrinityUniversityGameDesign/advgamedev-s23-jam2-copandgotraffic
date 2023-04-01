@@ -17,8 +17,11 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    public void SpawnTriggerEntered()
+    public void OnTriggerEnter(Collider collider)
     {
-        roadSpawner.MoveRoad();
+        if (collider.gameObject.tag == "Player")
+        {
+            roadSpawner.MoveRoad();
+        }
     }
 }

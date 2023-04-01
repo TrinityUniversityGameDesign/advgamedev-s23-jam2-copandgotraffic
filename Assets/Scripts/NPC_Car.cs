@@ -19,7 +19,7 @@ public class NPC_Car : MonoBehaviour
     void Start()
     {
         currspeed = 0f;
-        maxSpeed = Random.Range(1f, 10f);
+        maxSpeed = Random.Range(10f, 30f);
         breakingSpeed = 0.08f;
         slowspeed = 1f;
         acceleration = 0.05f;
@@ -56,7 +56,7 @@ public class NPC_Car : MonoBehaviour
                 
             }
         }
-        transform.Translate(Vector3.forward * currspeed * Time.deltaTime);
+        transform.Translate(Vector3.right * currspeed * Time.deltaTime);
 
     }
     IEnumerator Stop_Stopping()

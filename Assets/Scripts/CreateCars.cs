@@ -11,10 +11,22 @@ public class CreateCars : MonoBehaviour
     {
         for (int i = 0; i < 30; i++)
         {
-            for (int j = 0; j < 4; i++)
+            int a = 2;
+            int z = Random.Range(3, 6);
+                if(z < 4)
             {
-                Instantiate(prefab, new Vector3(3, 2*j+3, i * 10), Quaternion.identity);
+                 a= -6;
             }
+            else if (z < 5)
+            {
+                a = 0;
+            }
+            else if (z < 6)
+            {
+                a = 4;
+            }
+            Instantiate(prefab, new Vector3(3*i +10, 3, a), Quaternion.identity);
+            
         }
     }
 
